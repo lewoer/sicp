@@ -1,0 +1,11 @@
+#lang planet neil/sicp
+;将过程作为参数传递，能够显著增强我们程序设计语言的表达能力。
+;不动点搜寻，平均阻尼，y->x/y三种思想求平方根
+;derivation 导数，牛顿法比折半法的收敛速度快
+
+(define (cubic a b c)
+  (lambda (x)
+    (+ (cube x)
+       (* a (square x))
+       (* b x)
+       c)))
