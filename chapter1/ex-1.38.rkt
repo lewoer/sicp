@@ -1,0 +1,17 @@
+#lang planet neil/sicp
+(define (cont-frac n d k)
+  (define (loop result term)
+    (if (= term 0)
+        result
+        (loop (/ (n term)
+                 (+ (d term) result))
+              (- term 1))))
+  (loop 0 k))
+(define (e k)
+  (+ 2.0 (cont-frac (lambda (i) 1)
+                    (lambda (i)
+                      (if (= (remainder i 3) 2)
+                          (/ (+ i 1) 1.5)
+                          1))
+                    k)))
+(e 1000)
